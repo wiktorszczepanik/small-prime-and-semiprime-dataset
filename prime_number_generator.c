@@ -4,6 +4,47 @@
 #include <stdbool.h>
 #include <sys/types.h>
 
+// Bit range and File name validation
+bool is_valid_range(char input_argument[]);
+bool is_valid_file_name(char input_file_name[]);
+
+// Setting number range
+typedef struct { int a; int b; } BitRange;
+typedef struct { unsigned int a; unsigned int b; } NumberRange;
+BitRange set_bit_range(char input_argument[]);
+NumberRange set_number_range(BitRange bit_range);
+
+// Prime numbers generating algorithms
+void sieve_of_atkin(NumberRange number_range, char file_name[]);
+
+
+// ./prime-number-generator { 1-32 }
+int main(int argc, char* argv[]) {
+    if (argc != 3) {
+        fprintf(stderr, "Error: Incorrect number of flags.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    char *entry_range = argv[1];
+    if (!is_valid_range(entry_range)) {
+        fprintf(stderr, "Error: Incorrect flag setup.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    BitRange bit_range = set_bit_range(entry_range);
+    printf("Selected bit range: <%d-%d>\n", bit_range.a, bit_range.b);
+
+    NumberRange number_range = set_number_range(bit_range);
+    printf("Numeric representation: <%u-%u>\n", number_range.a, number_range.b);
+
+    char *file_name = argv[2];
+    if (!is_valid_file_name(file_name)) {
+        fprintf(stderr, "Error: Incorrect file name.\n");
+        exit(EXIT_FAILURE);
+    }
+    return 0;
+}
+
 bool is_valid_range(char input_argument[]) {
     int len = strlen(input_argument);
     int dash_index; int dash_counter = 0;
@@ -20,11 +61,6 @@ bool is_valid_range(char input_argument[]) {
     if (input_argument[dash_index + 1] < 49 || input_argument[dash_index + 1] > 57) return false;
     return true;
 }
-
-typedef struct {
-    int a;
-    int b;
-} BitRange;
 
 BitRange set_bit_range(char input_argument[]) {
     int len = strlen(input_argument);
@@ -68,11 +104,6 @@ BitRange set_bit_range(char input_argument[]) {
     return range;
 }
 
-typedef struct {
-    unsigned int a;
-    unsigned int b;
-} NumberRange;
-
 NumberRange set_number_range(BitRange bit_range) {
     NumberRange number_range;
     number_range.a = 0; number_range.b = 0;
@@ -99,31 +130,4 @@ bool is_valid_file_name(char input_file_name[]) {
 
 void sieve_of_atkin(NumberRange number_range, char file_name[]) {
     //
-}
-
-// ./prime-number-generator { 1-32 }
-int main(int argc, char* argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "Error: Incorrect number of flags.\n");
-        exit(EXIT_FAILURE);
-    }
-
-    char *entry_range = argv[1];
-    if (!is_valid_range(entry_range)) {
-        fprintf(stderr, "Error: Incorrect flag setup.\n");
-        exit(EXIT_FAILURE);
-    }
-
-    BitRange bit_range = set_bit_range(entry_range);
-    printf("Selected bit range: <%d-%d>\n", bit_range.a, bit_range.b);
-
-    NumberRange number_range = set_number_range(bit_range);
-    printf("Numeric representation: <%u-%u>\n", number_range.a, number_range.b);
-
-    char *file_name = argv[2];
-    if (!is_valid_file_name(file_name)) {
-        fprintf(stderr, "Error: Incorrect file name.\n");
-        exit(EXIT_FAILURE);
-    }
-    return 0;
 }
