@@ -87,3 +87,22 @@ bool is_valid_file_name(char input_file_name[]) {
     }
     return true;
 }
+
+bool should_continue() {
+    printf("Considering the above information, do you wish to proceed?\n");
+    printf("[Y/n] ");
+    char input; scanf("%c", &input);
+    return (input == 'Y' || input == 'y') ? true : false;
+}
+
+bool* int_bool_array(size_t size_for_memory) {
+    bool* is_prime_array = (bool*) malloc(size_for_memory * sizeof(bool));
+    if (is_prime_array == NULL) {
+        fprintf(stderr, "Error: Problem with memory allcation.\n");
+        exit(EXIT_FAILURE);
+    }
+    for (unsigned int i = 0; i < size_for_memory; i++)
+        is_prime_array[i] = true;
+
+    return is_prime_array;
+}

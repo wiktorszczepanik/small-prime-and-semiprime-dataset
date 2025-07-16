@@ -7,6 +7,4 @@ gcc -o prime-number-generator \
 
 if [ $? -eq 0 ]; then
 	echo "Compilation success!"
-else
-	echo "Compilation failed."
 fi

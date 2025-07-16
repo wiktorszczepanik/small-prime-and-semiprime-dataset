@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include "algorithms/generation_of_primes.h"
+#include "save/save_generation_of_primes.h"
 
 
 // ./prime-number-generator { 1-32 }
@@ -32,7 +33,11 @@ int main(int argc, char* argv[]) {
 
     int number_of_primes = estimate_number_of_primes(number_range);
     printf("Estimated number of primes: %d\n", number_of_primes);
-    // bool *prime_array = find_primes_eratosthenes();
-    // free(prime_array);
+
+    if (!should_continue()) exit(EXIT_FAILURE);
+    bool *is_prime = int_bool_array((size_t) number_range.b);
+    find_primes_eratosthenes(is_prime, number_range.b);
+    // save_to_file(is_prime, file_name, number_range);
+    free(is_prime);
     return 0;
 }
