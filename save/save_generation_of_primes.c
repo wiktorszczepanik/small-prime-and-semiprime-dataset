@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "save_generation_of_primes.h"
 
+//...
 void save_to_file(bool *is_prime, char file_name[], NumberRange numer_range) {
     size_t number_of_primes = 0;
     for (unsigned int i = 0; i < numer_range.b; i++)

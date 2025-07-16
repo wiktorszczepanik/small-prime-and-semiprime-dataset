@@ -88,12 +88,12 @@ bool is_valid_file_name(char input_file_name[]) {
     return true;
 }
 
-char* file_size_estimation(int number_of_primes) {
-    int size = number_of_primes * sizeof(int);
-    char mem_size[20];
-    // if (size < 1024) sprintf(mem_size, "%d B",);
-    // else if (size < 1048576) mem_size = "MB";
-    // ...
+void file_size_estimation(int number_of_primes, char* mem_size) {
+    unsigned long size = number_of_primes * sizeof(int);
+    if (size < 1024) sprintf(mem_size, "%ld B", size);
+    else if (size < 1048576) sprintf(mem_size, "%ld KB", size / 1024);
+    else if (size < 1073741824) sprintf(mem_size, "%ld MB", size / 1048576);
+    else sprintf(mem_size, "%ld GB", size / 1073741824);
 }
 
 bool should_continue() {

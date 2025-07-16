@@ -6,7 +6,7 @@
 // Bit range and File name validation
 bool is_valid_range(char input_argument[]);
 bool is_valid_file_name(char input_file_name[]);
-char* file_size_estimation(int number_of_primes);
+void file_size_estimation(int number_of_primes, char* mem_size);
 bool should_continue();
 bool* int_bool_array(size_t size_for_memory);
 
