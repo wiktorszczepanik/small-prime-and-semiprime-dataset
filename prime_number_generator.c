@@ -20,10 +20,10 @@ int main(int argc, char* argv[]) {
     }
 
     BitRange bit_range = set_bit_range(entry_range);
-    printf("Selected bit range: <%d-%d>\n", bit_range.a, bit_range.b);
+    printf("Selected bit range:............. <%d-%d>\n", bit_range.a, bit_range.b);
 
     NumberRange number_range = set_number_range(bit_range);
-    printf("Numeric representation: <%u-%u>\n", number_range.a, number_range.b);
+    printf("Numeric representation:......... <%u-%u>\n", number_range.a, number_range.b);
 
     char *file_name = argv[2];
     if (!is_valid_file_name(file_name)) {
@@ -32,12 +32,13 @@ int main(int argc, char* argv[]) {
     }
 
     int number_of_primes = estimate_number_of_primes(number_range);
-    printf("Estimated number of primes: %d\n", number_of_primes);
+    printf("Estimated number of primes:..... %d\n", number_of_primes);
+
 
     if (!should_continue()) exit(EXIT_FAILURE);
     bool *is_prime = int_bool_array((size_t) number_range.b);
     find_primes_eratosthenes(is_prime, number_range.b);
-    // save_to_file(is_prime, file_name, number_range);
+    save_to_file(is_prime, file_name, number_range);
     free(is_prime);
     return 0;
 }
