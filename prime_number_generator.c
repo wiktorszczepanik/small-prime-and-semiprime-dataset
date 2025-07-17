@@ -7,7 +7,7 @@
 #include "setup/set_generation_of_primes.h"
 
 
-// ./prime-number-generator { 1-32 }
+// ./prime-number-generator { 1-32 } { primes.bin }
 int main(int argc, char* argv[]) {
     if (argc != 3) {
         fprintf(stderr, "Error: Incorrect number of flags.\n");

@@ -89,7 +89,7 @@ bool is_valid_file_name(char input_file_name[]) {
 }
 
 void file_size_estimation(int number_of_primes, char* mem_size) {
-    unsigned long size = number_of_primes * sizeof(int);
+    unsigned long size = number_of_primes * sizeof(unsigned int);
     if (size < 1024) sprintf(mem_size, "%ld B", size);
     else if (size < 1048576) sprintf(mem_size, "%ld KB", size / 1024);
     else if (size < 1073741824) sprintf(mem_size, "%ld MB", size / 1048576);
@@ -97,7 +97,7 @@ void file_size_estimation(int number_of_primes, char* mem_size) {
 }
 
 bool should_continue() {
-    printf("\nConsidering the above information, would you like to proceed?\n");
+    printf("\nWould you like to proceed?\n");
     printf("[Y/n] ");
     char input; scanf("%c", &input);
     return (input == 'Y' || input == 'y') ? true : false;
