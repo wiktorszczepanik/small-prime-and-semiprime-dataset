@@ -19,6 +19,7 @@ int main(int argc, char* argv[]) {
 
     // ... binary_search
     // ... get_struct
+    // ...
 
     for (int i = 0; i < 100; i++) {
         printf("{%d, %d, %lu}\n", tuples[i].a, tuples[i].b, tuples[i].c);
