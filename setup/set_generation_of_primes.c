@@ -73,6 +73,9 @@ NumberRange set_number_range(BitRange bit_range) {
     for (int i = 0; i < bit_range.b; i++)
         number_range.b += (1U << i);
 
+    if (number_range.a <= 1) number_range.a = 2;
+    if (number_range.b <= 1) number_range.b = 2;
+
     return number_range;
 }
 

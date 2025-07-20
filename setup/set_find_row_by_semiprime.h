@@ -1,5 +1,5 @@
-#ifndef SET_FIND_BY_SEMIPRIME_H
-#define SET_FIND_BY_SEMIPRIME_H
+#ifndef SET_FIND_ROW_BY_SEMIPRIME_H
+#define SET_FIND_ROW_BY_SEMIPRIME_H
 
 typedef struct {
     unsigned int a;

@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "setup/set_generation_of_semiprimes.h"
 #include "save/save_generation_of_semiprimes.h"
+#include "algorithms/generation_of_semiprimes.h"
 
 // ./semiprime-number-generator { primes.bin } { semiprimes.bin }
 int main(int argc, char* argv[]) {
@@ -21,16 +22,30 @@ int main(int argc, char* argv[]) {
 
     char memory_size[50];
     file_size_estimation(number_of_semiprimes * sizeof(BinaryStruct), memory_size);
-    printf("Estimated size of the file:..... %s\n", memory_size);
+    printf("Estimated size of the file:......... %s\n", memory_size);
 
     if (!should_continue()) exit(EXIT_FAILURE);
 
     unsigned int* primes_array = load_primes(primes_file);
     char* output_file = argv[2];
     unsigned int number_of_primes = primes_counter(primes_file);
-    save_primes_and_semiprimes(
-        primes_array, number_of_primes, number_of_semiprimes, output_file
-    );
+
+    printf("\nAllocating memory for semiprimes.... ");
+    BinaryStruct* tuples = malloc(number_of_semiprimes * sizeof(BinaryStruct));
+
+    printf("DONE\nCalculating semiprimes.............. ");
+    calculate_primes_and_semiprimes(primes_array, number_of_primes, tuples);
+
+    printf("DONE\nSorting semiprimes.................. ");
+    qsort(tuples, number_of_semiprimes, sizeof(BinaryStruct), compare_by_semiprime);
+
+    printf("DONE\nSaving semiprimes................... ");
+    save_primes_and_semiprimes(tuples, number_of_semiprimes, output_file);
+
+    printf("DONE\nDeallocating memory................. ");
     free(primes_array);
+    free(tuples);
+    printf("DONE\n");
+
     return 0;
 }

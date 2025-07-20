@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "setup/set_find_by_semiprime.h"
+#include "setup/set_find_row_by_semiprime.h"
 
-// ./find-by-semiprime { file.bin }
+// ./find-by-semiprime { file.bin } { 314 }
 int main(int argc, char* argv[]) {
-    if (argc != 2) {
+    if (argc != 3) {
         fprintf(stderr, "Error: Incorrect number of files.\n");
         exit(EXIT_FAILURE);
     }
@@ -15,7 +15,12 @@ int main(int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     }
     BinaryStruct* tuples = load_semiprimes(file_name);
-    for (int i = 0; i < 20; i++) {
+    char* search_number = argv[2];
+
+    // ... binary_search
+    // ... get_struct
+
+    for (int i = 0; i < 100; i++) {
         printf("{%d, %d, %lu}\n", tuples[i].a, tuples[i].b, tuples[i].c);
     }
     return 0;

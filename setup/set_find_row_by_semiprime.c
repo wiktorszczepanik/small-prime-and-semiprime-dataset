@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "set_find_by_semiprime.h"
+#include "set_find_row_by_semiprime.h"
 
 bool does_file_exists(char file_name[]) {
     FILE* file;

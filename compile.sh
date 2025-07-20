@@ -17,17 +17,18 @@ gcc -o semiprime-number-generator \
     semiprime_number_generator.c \
     setup/set_generation_of_semiprimes.c \
 	save/save_generation_of_semiprimes.c \
-    -I setup -I save -lm
+	algorithms/generation_of_semiprimes.c \
+    -I algorithms -I setup -I save -lm
 
 if [ $? -eq 0 ]; then
 	echo "Semiprime number generator -> Compilation success!"
 fi
 
 
-# ./find-by-semiprime { semiprimes.bin }
-gcc -o find-by-semiprime \
-	find_by_semiprime.c \
-    setup/set_find_by_semiprime.c \
+# ./find-row-by-semiprime { semiprimes.bin }
+gcc -o find-row-by-semiprime \
+	find_row_by_semiprime.c \
+    setup/set_find_row_by_semiprime.c \
     -I setup -lm
 
 if [ $? -eq 0 ]; then
