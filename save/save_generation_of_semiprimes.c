@@ -5,7 +5,7 @@
 
 void save_primes_and_semiprimes(
     unsigned int* primes_array,
-    unsigned long number_of_semiprimes,
+    unsigned long number_of_primes,
     char output_file[]) {
 
     FILE* file = fopen(output_file, "wb");
@@ -14,12 +14,11 @@ void save_primes_and_semiprimes(
         exit(EXIT_FAILURE);
     }
 
-    for (unsigned long i = 0; i < number_of_semiprimes; i++) {
-        for (unsigned long j = 0; j < number_of_semiprimes; j++) {
-            // unsigned int a = primes_array[i];
-            // unsigned int b = primes_array[j];
-            // Tuple tuple = {a, b, (unsigned long) a * (unsigned long) b};
-            // fwrite(&tuple, sizeof(Tuple), 1, file);
+    for (unsigned long i = 0; i < number_of_primes; i++) {
+        for (unsigned long j = i; j < number_of_primes; j++) {
+            unsigned int a = primes_array[i], b = primes_array[j];
+            BinaryStruct tuple = {a, b, (unsigned long) a * b};
+            fwrite(&tuple, sizeof(BinaryStruct), 1, file);
         }
     }
 }

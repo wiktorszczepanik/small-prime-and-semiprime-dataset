@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "setup/set_generation_of_semiprimes.h"
+#include "save/save_generation_of_semiprimes.h"
 
 // ./semiprime-number-generator { primes.bin } { semiprimes.bin }
 int main(int argc, char* argv[]) {
@@ -19,14 +20,14 @@ int main(int argc, char* argv[]) {
     printf("Estimated number of semiprimes:..... %lu\n", number_of_semiprimes);
 
     char memory_size[50];
-    file_size_estimation(number_of_semiprimes * sizeof(Tuple), memory_size);
+    file_size_estimation(number_of_semiprimes * sizeof(BinaryStruct), memory_size);
     printf("Estimated size of the file:..... %s\n", memory_size);
 
     if (!should_continue()) exit(EXIT_FAILURE);
 
     unsigned int* primes_array = load_primes(primes_file);
-
     char* output_file = argv[2];
-    save_primes_and_semiprimes(primes_array, number_of_semiprimes, output_file);
+    unsigned int number_of_primes = primes_counter(primes_file);
+    save_primes_and_semiprimes(primes_array, number_of_primes, output_file);
     return 0;
 }
