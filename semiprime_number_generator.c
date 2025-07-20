@@ -28,6 +28,9 @@ int main(int argc, char* argv[]) {
     unsigned int* primes_array = load_primes(primes_file);
     char* output_file = argv[2];
     unsigned int number_of_primes = primes_counter(primes_file);
-    save_primes_and_semiprimes(primes_array, number_of_primes, output_file);
+    save_primes_and_semiprimes(
+        primes_array, number_of_primes, number_of_semiprimes, output_file
+    );
+    free(primes_array);
     return 0;
 }

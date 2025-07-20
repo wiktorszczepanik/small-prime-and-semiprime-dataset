@@ -10,6 +10,9 @@ void save_to_file(bool *is_prime, char file_name[], NumberRange number_range) {
         exit(EXIT_FAILURE);
     }
 
+    if (number_range.a <= 1) number_range.a = 2;
+    if (number_range.b <= 1) number_range.b = 2;
+
     for (unsigned int i = number_range.a; i < number_range.b; i++) {
         if (is_prime[i]) {
             size_t written = fwrite(&i, sizeof(unsigned int), 1, file);

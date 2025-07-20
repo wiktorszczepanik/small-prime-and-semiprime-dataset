@@ -4,6 +4,7 @@
 void save_primes_and_semiprimes(
     unsigned int* primes_array,
     unsigned long number_of_primes,
+    unsigned long number_of_stucts,
     char output_file[]
 );
 

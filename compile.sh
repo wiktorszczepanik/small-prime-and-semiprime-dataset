@@ -22,3 +22,14 @@ gcc -o semiprime-number-generator \
 if [ $? -eq 0 ]; then
 	echo "Semiprime number generator -> Compilation success!"
 fi
+
+
+# ./find-by-semiprime { semiprimes.bin }
+gcc -o find-by-semiprime \
+	find_by_semiprime.c \
+    setup/set_find_by_semiprime.c \
+    -I setup -lm
+
+if [ $? -eq 0 ]; then
+	echo "Find by semiprime -> Compilation success!"
+fi
