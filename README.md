@@ -41,4 +41,4 @@ bash compile-all-programs.sh
 
 ## Warning
 
-Be aware that generating large ranges of prime numbers can result in long processing times and significant memory allocation in RAM. It is advisable to start with smaller ranges to understand the performance implications before scaling up.
+Be aware that generating large ranges of prime and semiprime numbers can result in long processing times and significant memory allocation in RAM. It is advisable to start with smaller ranges to understand the performance implications before scaling up.
