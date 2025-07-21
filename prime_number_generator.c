@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <sys/types.h>
-#include "algorithms/generation_of_primes.h"
+#include "algorithms/algorithms_generation_of_primes.h"
 #include "save/save_generation_of_primes.h"
 #include "setup/set_generation_of_primes.h"
 

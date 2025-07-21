@@ -1,5 +1,5 @@
-#ifndef GENERATION_OF_SEMIPRIMES_H
-#define GENERATION_OF_SEMIPRIMES_H
+#ifndef ALGORITHMS_GENERATION_OF_SEMIPRIMES_H
+#define ALGORITHMS_GENERATION_OF_SEMIPRIMES_H
 
 #include "../save/save_generation_of_semiprimes.h"
 

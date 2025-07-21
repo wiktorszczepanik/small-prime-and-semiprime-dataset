@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <math.h>
-#include "generation_of_primes.h"
+#include "algorithms_generation_of_primes.h"
 
 int estimate_number_of_primes(NumberRange number_range) {
     if (number_range.b < 2) return 0;

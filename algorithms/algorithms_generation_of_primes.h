@@ -1,5 +1,5 @@
-#ifndef GENERATION_OF_PRIMES_H
-#define GENERATION_OF_PRIMES_H
+#ifndef ALGORITHMS_GENERATION_OF_PRIMES_H
+#define ALGORITHMS_GENERATION_OF_PRIMES_H
 
 #include "../setup/set_generation_of_primes.h"
 

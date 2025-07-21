@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include "setup/set_generation_of_semiprimes.h"
 #include "save/save_generation_of_semiprimes.h"
-#include "algorithms/generation_of_semiprimes.h"
+#include "algorithms/algorithms_generation_of_semiprimes.h"
 
 // ./semiprime-number-generator { primes.bin } { semiprimes.bin }
 int main(int argc, char* argv[]) {

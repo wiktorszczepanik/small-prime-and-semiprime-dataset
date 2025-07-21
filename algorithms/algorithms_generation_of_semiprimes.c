@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include "generation_of_semiprimes.h"
+#include "algorithms_generation_of_semiprimes.h"
 
 void calculate_primes_and_semiprimes(
     unsigned int* primes_array,
