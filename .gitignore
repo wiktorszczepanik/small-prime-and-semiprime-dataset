@@ -1,2 +1,8 @@
+# Executable files
 /prime-number-generator
-/pseudo.txt
+/semiprime-number-generator
+/find-row-by-semiprime
+
+# Output files
+/primes.bin
+/semiprimes.bin
