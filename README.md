@@ -1,6 +1,6 @@
 # Small Prime And Semiprime Dataset
 
-This repository contains three command-line programs designed for generating and working with prime and semiprime numbers. The primary goal of this project was to practice **C** language and create a tool for participating in CTF's challenges that involve cryptography.
+This repository contains three command-line programs designed for generating and working with prime and semiprime numbers. The primary goal of this project was to practice **C** language and create a tool for participating in CTF's challenges that involve number theory and cryptography.
 
 ## Programs
 
